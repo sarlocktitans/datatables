@@ -1,24 +1,16 @@
 <h1>Users</h1>
-<table>
+<%= content_tag :table, role: :datatable, data: {url: users_path(format: :json)} do %>
 	<thead>
 	<tr>
 		<th>First name</th>
 		<th>Last name</th>
 		<th>Phone number</th>
-		<th>Actions</th>
+		
 	</tr>
 	</thead>
 	<tbody>
-	  <% @user.each do |user| %>
-		<tr>
-			<td><%= user.first_name %></td>
-			<td><%= user.last_name %></td>
-			<td><%= user.phone_number %></td>
-			<td><%= link_to "Show", "#", class: "btn btn-primary" %>
-				<%= link_to "Edit", "#", class: "btn btn-primary" %>
-				<%= link_to "Delete", "#", class: "btn btn-primary" %>
-			</td>
-		</tr>
-	  <% end %>
+	  
 	</tbody>
-</table>
+<% end %>
+
+<%= link_to "New user", user_new_path, class: "btn btn-primary" %>
